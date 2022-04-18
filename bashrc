@@ -125,3 +125,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # shortcut to nvim
 alias v='nvim'
+
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/notken12/.profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
