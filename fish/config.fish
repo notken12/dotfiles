@@ -14,4 +14,4 @@ set -gx PATH $homebrew $brew_rbenv $default_path
 
 theme_gruvbox dark medium
 
-nvm use --lts
+nvm use --lts --silent

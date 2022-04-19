@@ -1,6 +1,6 @@
 package bass
 package foreign-env
 package https://github.com/Jomik/fish-gruvbox
-package nvm
+package https://github.com/fabioantunes/fish-nvm
 theme bobthefish
 theme default
