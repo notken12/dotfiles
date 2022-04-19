@@ -10,7 +10,8 @@ alias v="nvim"
 set default_path /usr/bin /usr/sbin /bin /sbin
 set homebrew /home/linuxbrew/.linuxbrew/bin 
 set brew_rbenv "/usr/local/var/rbenv/shims"
-set -gx PATH $homebrew $brew_rbenv $default_path
+set cargo ~/.cargo/bin
+set -gx PATH $homebrew $brew_rbenv $cargo $default_path
 
 theme_gruvbox dark medium
 
