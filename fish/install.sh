@@ -13,6 +13,5 @@ chmod +x ./omf/install.fish
 # install things for omf
 fish ./omf/install.fish
 
-# install node 16
-nvm install 16
-nvm use 16
+# install node lts version
+nvm install --lts

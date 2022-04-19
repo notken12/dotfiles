@@ -13,3 +13,5 @@ set brew_rbenv "/usr/local/var/rbenv/shims"
 set -gx PATH $homebrew $brew_rbenv $default_path
 
 theme_gruvbox dark medium
+
+nvm use --lts
