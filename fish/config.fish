@@ -9,11 +9,18 @@ alias v="nvim"
 
 set default_path /usr/bin /usr/sbin /bin /sbin
 set homebrew /home/linuxbrew/.linuxbrew/bin 
-set brew_rbenv "/usr/local/var/rbenv/shims"
+set brew_rbenv /usr/local/var/rbenv/shims
 set cargo ~/.cargo/bin
 set -gx PATH $homebrew $brew_rbenv $cargo $default_path
 
 theme_gruvbox dark medium
 
 nvm use --lts --silent
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# set up gpg
+export GPG_TTY=(tty)
+
+# use 256color
+export TERM=xterm-256color
+# export TERM=screen-256color
