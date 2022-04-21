@@ -7,7 +7,7 @@ alias v="nvim"
 
 # set -U fish_user_paths /home/linuxbrew/.linuxbrew/bin/brew $fish_user_paths
 
-set default_path /usr/bin /usr/sbin /bin /sbin
+set default_path /usr/bin /usr/sbin /bin /sbin /usr/games
 set homebrew /home/linuxbrew/.linuxbrew/bin 
 set brew_rbenv /usr/local/var/rbenv/shims
 set cargo ~/.cargo/bin
