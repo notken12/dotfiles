@@ -22,5 +22,5 @@ nvm use --lts --silent
 export GPG_TTY=(tty)
 
 # use 256color
-export TERM=xterm-256color
-# export TERM=screen-256color
+# export TERM=xterm-256color
+export TERM=screen-256color
