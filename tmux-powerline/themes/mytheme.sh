@@ -60,7 +60,7 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		# "lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
 		# "wan_ip 24 255" \
 		"pwd #bdae93 0 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		"vcs_branch #bdae93 0" \
+		# "vcs_branch #bdae93 0" \
 		#"vcs_compare 60 255" \
 		#"vcs_staged 64 255" \
 		#"vcs_modified 9 255" \
@@ -81,9 +81,9 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		# "weather 37 255" \
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		#"xkb_layout 125 117" \
-		"date_day #3c3836 #ebdbb2" \
-		"date #665c54 #ebdbb2" \
-		"time #bdae93 0" \
+		# "date_day #3c3836 #ebdbb2" \
+		# "date #665c54 #ebdbb2" \
+		# "time #bdae93 0" \
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi

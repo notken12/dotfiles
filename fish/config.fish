@@ -13,7 +13,7 @@ set brew_rbenv /usr/local/var/rbenv/shims
 set cargo ~/.cargo/bin
 set -gx PATH $homebrew $brew_rbenv $cargo $default_path
 
-theme_gruvbox dark medium
+# theme_gruvbox dark medium
 
 nvm use --lts --silent
 # eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -23,4 +23,6 @@ export GPG_TTY=(tty)
 
 # use 256color
 # export TERM=xterm-256color
-export TERM=screen-256color
+# export TERM=screen-256color
+
+# set -g theme_color_scheme gruvbox

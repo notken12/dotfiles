@@ -303,3 +303,87 @@ times in msec
 1157.783  000.259: before starting main loop
 1170.141  012.358: first screen update
 1170.155  000.014: --- NVIM STARTED ---
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.004  000.004: --- NVIM STARTING ---
+000.322  000.318: locale set
+000.582  000.260: inits 1
+000.590  000.009: window checked
+000.593  000.003: parsing arguments
+002.197  001.604: expanding arguments
+002.216  000.018: inits 2
+002.535  000.320: init highlight
+002.537  000.002: waiting for UI
+002.981  000.444: done waiting for UI
+002.991  000.010: init screen for UI
+003.005  000.014: init default mappings
+003.027  000.022: init default autocommands
+003.727  000.053  000.053: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+003.872  000.022  000.022: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+010.075  003.623  003.623: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/vscode.nvim/colors/vscode.vim
+090.887  086.979  083.355: sourcing /home/notken12/.config/nvim/init.lua
+090.905  000.824: sourcing vimrc file(s)
+091.296  000.058  000.058: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+095.664  000.009  000.009: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+095.816  000.008  000.008: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/vim-fugitive/ftdetect/fugitive.vim
+096.050  004.738  004.721: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+096.254  000.052  000.052: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+096.318  000.229  000.177: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+102.482  000.331  000.331: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+102.507  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+102.634  000.119  000.119: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+102.931  000.139  000.139: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+102.990  000.348  000.209: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+103.105  000.106  000.106: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+103.125  000.012  000.012: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+103.217  000.007  000.007: sourcing /home/notken12/.local/share/nvim/rplugin.vim
+103.222  000.090  000.083: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+103.309  000.081  000.081: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+103.338  000.016  000.016: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+103.453  000.103  000.103: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+103.518  000.053  000.053: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+103.541  000.012  000.012: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+103.671  000.122  000.122: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+103.978  000.261  000.261: sourcing /home/notken12/.config/nvim/plugin/packer_compiled.lua
+104.094  006.502: loading rtp plugins
+104.439  000.094  000.094: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim
+104.647  000.158  000.158: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+105.045  000.229  000.229: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+105.176  000.036  000.036: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim/plugin/nlspsetting.vim
+106.226  000.886  000.886: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+106.423  000.114  000.114: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+106.598  000.090  000.090: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+106.712  000.063  000.063: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+107.485  000.709  000.709: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.vim
+107.644  000.096  000.096: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring/plugin/ts_context_commentstring.vim
+107.724  000.025  000.025: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+107.808  000.027  000.027: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+107.885  000.011  000.011: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/rust-tools.nvim/plugin/rust-tools.vim
+108.242  000.289  000.289: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+108.329  000.042  000.042: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/toggleterm.nvim/plugin/toggleterm.vim
+108.433  000.048  000.048: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/vim-bbye/plugin/bbye.vim
+109.475  000.995  000.995: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+109.557  000.011  000.011: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/which-key.nvim/plugin/which-key.vim
+109.638  001.621: loading packages
+110.775  000.214  000.214: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/Comment.nvim/after/plugin/Comment.lua
+111.047  000.235  000.235: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+111.227  000.143  000.143: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+111.408  000.138  000.138: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+111.600  000.159  000.159: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+111.816  000.180  000.180: sourcing /home/notken12/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+111.820  001.113: loading after plugins
+111.831  000.011: inits 3
+113.861  002.030: reading ShaDa
+115.478  001.617: opening buffers
+115.726  000.248: BufEnter autocommands
+115.729  000.003: editing files in windows
+125.603  009.874: VimEnter autocommands
+125.610  000.007: UIEnter autocommands
+319.562  193.799  193.799: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/autoload/provider/clipboard.vim
+319.579  000.170: before starting main loop
+321.951  002.372: first screen update
+321.954  000.002: --- NVIM STARTED ---
