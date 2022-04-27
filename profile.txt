@@ -1,0 +1,581 @@
+FUNCTION  <SNR>16_Remove_Matches()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim:197
+Called 31 times
+Total time:   0.000933
+ Self time:   0.000933
+
+count  total (s)   self (s)
+   31              0.000427   if exists('w:paren_hl_on') && w:paren_hl_on
+                                silent! call matchdelete(3)
+                                let w:paren_hl_on = 0
+   31              0.000079   endif
+
+FUNCTION  CursorHold_Cb()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim:19
+Called 2 times
+Total time:   0.000313
+ Self time:   0.000236
+
+count  total (s)   self (s)
+    2              0.000059   if v:exiting isnot v:null
+                                return
+    2              0.000008   endif
+    2   0.000143   0.000082   set eventignore-=CursorHold
+    2              0.000022   doautocmd <nomodeline> CursorHold
+    2   0.000048   0.000032   set eventignore+=CursorHold
+
+FUNCTION  <SNR>35_has_attr()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.vim:17
+Called 2 times
+Total time:   0.000022
+ Self time:   0.000022
+
+count  total (s)   self (s)
+    2              0.000013   let norm_color = synIDattr(hlID('Normal'), a:attr, a:mode)
+    2              0.000007   return strlen(norm_color) > 0
+
+FUNCTION  <SNR>1_LoadFTPlugin()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim:14
+Called 2 times
+Total time:   0.015213
+ Self time:   0.014679
+
+count  total (s)   self (s)
+    2              0.000032     if exists("b:undo_ftplugin")
+                                  exe b:undo_ftplugin
+                                  unlet! b:undo_ftplugin b:did_ftplugin
+    2              0.000006     endif
+                            
+    2              0.000025     let s = expand("<amatch>")
+    2              0.000010     if s != ""
+    2              0.000055       if &cpo =~# "S" && exists("b:did_ftplugin")
+                            	" In compatible mode options are reset to the global values, need to
+                            	" set the local values also when a plugin was already used.
+                            	unlet b:did_ftplugin
+    2              0.000005       endif
+                            
+                                  " When there is a dot it is used to separate filetype names.  Thus for
+                                  " "aaa.bbb" load "aaa" and then "bbb".
+    4              0.000048       for name in split(s, '\.')
+    2              0.006957         exe 'runtime! ftplugin/' . name . '.vim ftplugin/' . name . '_*.vim ftplugin/' . name . '/*.vim'
+                                    " Load lua ftplugins
+    2   0.007930   0.007395         exe printf('runtime! ftplugin/%s.lua ftplugin/%s_*.lua ftplugin/%s/*.lua', name, name, name)
+    4              0.000021       endfor
+    2              0.000006     endif
+
+FUNCTION  CursorHoldTimer()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim:37
+Called 4 times
+Total time:   0.000189
+ Self time:   0.000189
+
+count  total (s)   self (s)
+    4              0.000047   call timer_stop(g:fix_cursorhold_nvim_timer)
+    4              0.000028   if mode() == 'n'
+    4              0.000081     let g:fix_cursorhold_nvim_timer = timer_start(g:cursorhold_updatetime, 'CursorHold_Cb')
+    4              0.000010   endif
+
+FUNCTION  <SNR>18_GetManifest()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim:42
+Called 1 time
+Total time:   0.000064
+ Self time:   0.000029
+
+count  total (s)   self (s)
+    1   0.000043   0.000008   let manifest = s:GetManifestPath()
+    1              0.000006   if !filereadable(manifest)
+                                " Check if an old manifest file exists and move it to the new location.
+                                for old_manifest in s:GetOldManifestPaths()
+                                  if filereadable(old_manifest)
+                                    call rename(old_manifest, manifest)
+                                    break
+                                  endif
+                                endfor
+    1              0.000001   endif
+    1              0.000001   return manifest
+
+FUNCTION  <SNR>29_try()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim:7
+Called 31 times
+Total time:   0.031502
+ Self time:   0.031502
+
+count  total (s)   self (s)
+   31              0.000114     try
+   31              0.030825         execute a:cmd
+                                catch /E12/
+                                    return
+   31              0.000089     endtry
+
+FUNCTION  <SNR>18_GetManifestPath()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim:7
+Called 1 time
+Total time:   0.000035
+ Self time:   0.000035
+
+count  total (s)   self (s)
+    1              0.000002   let manifest_base = ''
+                            
+    1              0.000005   if exists('$NVIM_RPLUGIN_MANIFEST')
+                                return fnamemodify($NVIM_RPLUGIN_MANIFEST, ':p')
+    1              0.000001   endif
+                            
+    1              0.000004   let dest = stdpath('data')
+    1              0.000002   if !empty(dest)
+    1              0.000005     if !isdirectory(dest)
+                                  call mkdir(dest, 'p', 0700)
+    1              0.000001     endif
+    1              0.000002     let manifest_base = dest
+    1              0.000001   endif
+                            
+    1              0.000002   return manifest_base.'/rplugin.vim'
+
+FUNCTION  <SNR>18_LoadRemotePlugins()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim:56
+Called 1 time
+Total time:   0.000116
+ Self time:   0.000040
+
+count  total (s)   self (s)
+    1   0.000078   0.000013   let g:loaded_remote_plugins = s:GetManifest()
+    1              0.000005   if filereadable(g:loaded_remote_plugins)
+    1   0.000031   0.000019     execute 'source' fnameescape(g:loaded_remote_plugins)
+    1              0.000001   endif
+
+FUNCTION  CursorHoldITimer()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim:44
+Called 10 times
+Total time:   0.000225
+ Self time:   0.000225
+
+count  total (s)   self (s)
+   10              0.000088   call timer_stop(g:fix_cursorhold_nvim_timer)
+   10              0.000108   let g:fix_cursorhold_nvim_timer = timer_start(g:cursorhold_updatetime, 'CursorHoldI_Cb')
+
+FUNCTION  <SNR>2_LoadIndent()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim:13
+Called 2 times
+Total time:   0.002605
+ Self time:   0.002605
+
+count  total (s)   self (s)
+    2              0.000023     if exists("b:undo_indent")
+                                  exe b:undo_indent
+                                  unlet! b:undo_indent b:did_indent
+    2              0.000005     endif
+    2              0.000023     let s = expand("<amatch>")
+    2              0.000011     if s != ""
+    2              0.000012       if exists("b:did_indent")
+                            	unlet b:did_indent
+    2              0.000004       endif
+                            
+                                  " When there is a dot it is used to separate filetype names.  Thus for
+                                  " "aaa.bbb" load "indent/aaa.vim" and then "indent/bbb.vim".
+    4              0.000041       for name in split(s, '\.')
+    2              0.001228         exe 'runtime! indent/' . name . '.vim'
+    2              0.001172         exe 'runtime! indent/' . name . '.lua'
+    4              0.000013       endfor
+    2              0.000005     endif
+
+FUNCTION  <SNR>10_SynSet()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim:26
+Called 9 times
+Total time:   0.040886
+ Self time:   0.013475
+
+count  total (s)   self (s)
+                              " clear syntax for :set syntax=OFF  and any syntax name that doesn't exist
+    9              0.000056   syn clear
+    9              0.000057   if exists("b:current_syntax")
+                                unlet b:current_syntax
+    9              0.000014   endif
+                            
+    9              0.000057   let s = expand("<amatch>")
+    9              0.000027   if s == "ON"
+                                " :set syntax=ON
+                                if &filetype == ""
+                                  echohl ErrorMsg
+                                  echo "filetype unknown"
+                                  echohl None
+                                endif
+                                let s = &filetype
+    9              0.000021   elseif s == "OFF"
+                                let s = ""
+    9              0.000008   endif
+                            
+    9              0.000016   if s != ""
+                                " Load the syntax file(s).  When there are several, separated by dots,
+                                " load each in sequence.  Skip empty entries.
+   14              0.000105     for name in split(s, '\.')
+    7              0.000029       if !empty(name)
+    7   0.033784   0.006372         exe "runtime! syntax/" . name . ".vim syntax/" . name . "/*.vim"
+    7              0.006337         exe "runtime! syntax/" . name . ".lua syntax/" . name . "/*.lua"
+    7              0.000015       endif
+   14              0.000026     endfor
+    9              0.000011   endif
+
+FUNCTION  <SNR>52_cmd_ok()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/autoload/provider/clipboard.vim:52
+Called 1 time
+Total time:   0.359163
+ Self time:   0.000093
+
+count  total (s)   self (s)
+    1   0.359121   0.000052   call system(a:cmd)
+    1              0.000033   return v:shell_error == 0
+
+FUNCTION  <SNR>44_OnWsl()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/vim-startuptime/plugin/startuptime.vim:19
+Called 1 time
+Total time:   0.000029
+ Self time:   0.000029
+
+count  total (s)   self (s)
+                              " Recent versions of neovim provide a 'wsl' pseudo-feature.
+    1              0.000027   if has('wsl') | return 1 | endif
+                              if !has('unix') | return 0 | endif
+                              " Read /proc/version instead of using `uname` because 1) it's faster and 2)
+                              " so that this works in restricted mode.
+                              try
+                                if filereadable('/proc/version')
+                                  let l:version = readfile('/proc/version', '', 1)
+                                  if len(l:version) ># 0 && stridx(l:version[0], 'Microsoft') ># -1
+                                    return 1
+                                  endif
+                                endif
+                              catch
+                              endtry
+                              return 0
+
+FUNCTION  CursorHoldI_Cb()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim:28
+Called 2 times
+Total time:   0.000260
+ Self time:   0.000218
+
+count  total (s)   self (s)
+    2              0.000057   if v:exiting isnot v:null
+                                return
+    2              0.000009   endif
+    2   0.000097   0.000066   set eventignore-=CursorHoldI
+    2              0.000022   doautocmd <nomodeline> CursorHoldI
+    2   0.000045   0.000032   set eventignore+=CursorHoldI
+
+FUNCTION  <SNR>16_Highlight_Matching_Pair()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim:40
+Called 29 times
+Total time:   0.007611
+ Self time:   0.006766
+
+count  total (s)   self (s)
+                              " Remove any previous match.
+   29   0.001467   0.000622   call s:Remove_Matches()
+                            
+                              " Avoid that we remove the popup menu.
+                              " Return when there are no colors (looks like the cursor jumps).
+   29              0.000293   if pumvisible() || (&t_Co < 8 && !has("gui_running"))
+                                return
+   29              0.000043   endif
+                            
+                              " Get the character under the cursor and check if it's in 'matchpairs'.
+   29              0.000307   let c_lnum = line('.')
+   29              0.000218   let c_col = col('.')
+   29              0.000096   let before = 0
+                            
+   29              0.000190   let text = getline(c_lnum)
+   29              0.001386   let matches = matchlist(text, '\(.\)\=\%'.c_col.'c\(.\=\)')
+   29              0.000175   if empty(matches)
+                                let [c_before, c] = ['', '']
+   29              0.000059   else
+   29              0.000298     let [c_before, c] = matches[1:2]
+   29              0.000052   endif
+   29              0.000795   let plist = split(&matchpairs, '.\zs[:,]')
+   29              0.000222   let i = index(plist, c)
+   29              0.000091   if i < 0
+                                " not found, in Insert mode try character before the cursor
+   29              0.000266     if c_col > 1 && (mode() == 'i' || mode() == 'R')
+   20              0.000131       let before = strlen(c_before)
+   20              0.000061       let c = c_before
+   20              0.000088       let i = index(plist, c)
+   29              0.000047     endif
+   29              0.000074     if i < 0
+                                  " not found, nothing to do
+   29              0.000131       return
+                                endif
+                              endif
+                            
+                              " Figure out the arguments for searchpairpos().
+                              if i % 2 == 0
+                                let s_flags = 'nW'
+                                let c2 = plist[i + 1]
+                              else
+                                let s_flags = 'nbW'
+                                let c2 = c
+                                let c = plist[i - 1]
+                              endif
+                              if c == '['
+                                let c = '\['
+                                let c2 = '\]'
+                              endif
+                            
+                              " Find the match.  When it was just before the cursor move it there for a
+                              " moment.
+                              if before > 0
+                                let has_getcurpos = exists("*getcurpos")
+                                if has_getcurpos
+                                  " getcurpos() is more efficient but doesn't exist before 7.4.313.
+                                  let save_cursor = getcurpos()
+                                else
+                                  let save_cursor = winsaveview()
+                                endif
+                                call cursor(c_lnum, c_col - before)
+                              endif
+                            
+                              if !has("syntax") || !exists("g:syntax_on")
+                                let s_skip = "0"
+                              else
+                                " Build an expression that detects whether the current cursor position is
+                                " in certain syntax types (string, comment, etc.), for use as
+                                " searchpairpos()'s skip argument.
+                                " We match "escape" for special items, such as lispEscapeSpecial, and
+                                " match "symbol" for lispBarSymbol.
+                                let s_skip = '!empty(filter(map(synstack(line("."), col(".")), ''synIDattr(v:val, "name")''), ' . '''v:val =~? "string\\|character\\|singlequote\\|escape\\|symbol\\|comment"''))'
+                                " If executing the expression determines that the cursor is currently in
+                                " one of the syntax types, then we want searchpairpos() to find the pair
+                                " within those syntax types (i.e., not skip).  Otherwise, the cursor is
+                                " outside of the syntax types and s_skip should keep its value so we skip
+                                " any matching pair inside the syntax types.
+                                " Catch if this throws E363: pattern uses more memory than 'maxmempattern'.
+                                try
+                                  execute 'if ' . s_skip . ' | let s_skip = "0" | endif'
+                                catch /^Vim\%((\a\+)\)\=:E363/
+                                  " We won't find anything, so skip searching, should keep Vim responsive.
+                                  return
+                                endtry
+                              endif
+                            
+                              " Limit the search to lines visible in the window.
+                              let stoplinebottom = line('w$')
+                              let stoplinetop = line('w0')
+                              if i % 2 == 0
+                                let stopline = stoplinebottom
+                              else
+                                let stopline = stoplinetop
+                              endif
+                            
+                              " Limit the search time to 300 msec to avoid a hang on very long lines.
+                              " This fails when a timeout is not supported.
+                              if mode() == 'i' || mode() == 'R'
+                                let timeout = exists("b:matchparen_insert_timeout") ? b:matchparen_insert_timeout : g:matchparen_insert_timeout
+                              else
+                                let timeout = exists("b:matchparen_timeout") ? b:matchparen_timeout : g:matchparen_timeout
+                              endif
+                              try
+                                let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip, stopline, timeout)
+                              catch /E118/
+                                " Can't use the timeout, restrict the stopline a bit more to avoid taking
+                                " a long time on closed folds and long lines.
+                                " The "viewable" variables give a range in which we can scroll while
+                                " keeping the cursor at the same position.
+                                " adjustedScrolloff accounts for very large numbers of scrolloff.
+                                let adjustedScrolloff = min([&scrolloff, (line('w$') - line('w0')) / 2])
+                                let bottom_viewable = min([line('$'), c_lnum + &lines - adjustedScrolloff - 2])
+                                let top_viewable = max([1, c_lnum-&lines+adjustedScrolloff + 2])
+                                " one of these stoplines will be adjusted below, but the current values are
+                                " minimal boundaries within the current window
+                                if i % 2 == 0
+                                  if has("byte_offset") && has("syntax_items") && &smc > 0
+                            	let stopbyte = min([line2byte("$"), line2byte(".") + col(".") + &smc * 2])
+                            	let stopline = min([bottom_viewable, byte2line(stopbyte)])
+                                  else
+                            	let stopline = min([bottom_viewable, c_lnum + 100])
+                                  endif
+                                  let stoplinebottom = stopline
+                                else
+                                  if has("byte_offset") && has("syntax_items") && &smc > 0
+                            	let stopbyte = max([1, line2byte(".") + col(".") - &smc * 2])
+                            	let stopline = max([top_viewable, byte2line(stopbyte)])
+                                  else
+                            	let stopline = max([top_viewable, c_lnum - 100])
+                                  endif
+                                  let stoplinetop = stopline
+                                endif
+                                let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip, stopline)
+                              endtry
+                            
+                              if before > 0
+                                if has_getcurpos
+                                  call setpos('.', save_cursor)
+                                else
+                                  call winrestview(save_cursor)
+                                endif
+                              endif
+                            
+                              " If a match is found setup match highlighting.
+                              if m_lnum > 0 && m_lnum >= stoplinetop && m_lnum <= stoplinebottom 
+                                if exists('*matchaddpos')
+                                  call matchaddpos('MatchParen', [[c_lnum, c_col - before], [m_lnum, m_col]], 10, 3)
+                                else
+                                  exe '3match MatchParen /\(\%' . c_lnum . 'l\%' . (c_col - before) . 'c\)\|\(\%' . m_lnum . 'l\%' . m_col . 'c\)/'
+                                endif
+                                let w:paren_hl_on = 1
+                              endif
+
+FUNCTION  provider#clipboard#Executable()
+    Defined: /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/autoload/provider/clipboard.vim:68
+Called 1 time
+Total time:   0.359385
+ Self time:   0.000223
+
+count  total (s)   self (s)
+    1              0.000003   if exists('g:clipboard')
+                                if type({}) isnot# type(g:clipboard) || type({}) isnot# type(get(g:clipboard, 'copy', v:null)) || type({}) isnot# type(get(g:clipboard, 'paste', v:null))
+                                  let s:err = 'clipboard: invalid g:clipboard'
+                                  return ''
+                                endif
+                            
+                                let s:copy = {}
+                                let s:copy['+'] = s:split_cmd(get(g:clipboard.copy, '+', v:null))
+                                let s:copy['*'] = s:split_cmd(get(g:clipboard.copy, '*', v:null))
+                            
+                                let s:paste = {}
+                                let s:paste['+'] = s:split_cmd(get(g:clipboard.paste, '+', v:null))
+                                let s:paste['*'] = s:split_cmd(get(g:clipboard.paste, '*', v:null))
+                            
+                                let s:cache_enabled = get(g:clipboard, 'cache_enabled', 0)
+                                return get(g:clipboard, 'name', 'g:clipboard')
+    1              0.000005   elseif has('mac')
+                                let s:copy['+'] = ['pbcopy']
+                                let s:paste['+'] = ['pbpaste']
+                                let s:copy['*'] = s:copy['+']
+                                let s:paste['*'] = s:paste['+']
+                                let s:cache_enabled = 0
+                                return 'pbcopy'
+    1              0.000023   elseif !empty($WAYLAND_DISPLAY) && executable('wl-copy') && executable('wl-paste')
+                                let s:copy['+'] = ['wl-copy', '--foreground', '--type', 'text/plain']
+                                let s:paste['+'] = ['wl-paste', '--no-newline']
+                                let s:copy['*'] = ['wl-copy', '--foreground', '--primary', '--type', 'text/plain']
+                                let s:paste['*'] = ['wl-paste', '--no-newline', '--primary']
+                                return 'wl-copy'
+    1              0.000012   elseif !empty($DISPLAY) && executable('xclip')
+                                let s:copy['+'] = ['xclip', '-quiet', '-i', '-selection', 'clipboard']
+                                let s:paste['+'] = ['xclip', '-o', '-selection', 'clipboard']
+                                let s:copy['*'] = ['xclip', '-quiet', '-i', '-selection', 'primary']
+                                let s:paste['*'] = ['xclip', '-o', '-selection', 'primary']
+                                return 'xclip'
+    1   0.359200   0.000037   elseif !empty($DISPLAY) && executable('xsel') && s:cmd_ok('xsel -o -b')
+    1              0.000037     let s:copy['+'] = ['xsel', '--nodetach', '-i', '-b']
+    1              0.000014     let s:paste['+'] = ['xsel', '-o', '-b']
+    1              0.000012     let s:copy['*'] = ['xsel', '--nodetach', '-i', '-p']
+    1              0.000011     let s:paste['*'] = ['xsel', '-o', '-p']
+    1              0.000010     return 'xsel'
+                              elseif executable('lemonade')
+                                let s:copy['+'] = ['lemonade', 'copy']
+                                let s:paste['+'] = ['lemonade', 'paste']
+                                let s:copy['*'] = ['lemonade', 'copy']
+                                let s:paste['*'] = ['lemonade', 'paste']
+                                return 'lemonade'
+                              elseif executable('doitclient')
+                                let s:copy['+'] = ['doitclient', 'wclip']
+                                let s:paste['+'] = ['doitclient', 'wclip', '-r']
+                                let s:copy['*'] = s:copy['+']
+                                let s:paste['*'] = s:paste['+']
+                                return 'doitclient'
+                              elseif executable('win32yank.exe')
+                                if has('wsl') && getftype(exepath('win32yank.exe')) == 'link'
+                                  let win32yank = resolve(exepath('win32yank.exe'))
+                                else
+                                  let win32yank = 'win32yank.exe'
+                                endif
+                                let s:copy['+'] = [win32yank, '-i', '--crlf']
+                                let s:paste['+'] = [win32yank, '-o', '--lf']
+                                let s:copy['*'] = s:copy['+']
+                                let s:paste['*'] = s:paste['+']
+                                return 'win32yank'
+                              elseif executable('termux-clipboard-set')
+                                let s:copy['+'] = ['termux-clipboard-set']
+                                let s:paste['+'] = ['termux-clipboard-get']
+                                let s:copy['*'] = s:copy['+']
+                                let s:paste['*'] = s:paste['+']
+                                return 'termux-clipboard'
+                              elseif !empty($TMUX) && executable('tmux')
+                                let s:copy['+'] = ['tmux', 'load-buffer', '-']
+                                let s:paste['+'] = ['tmux', 'save-buffer', '-']
+                                let s:copy['*'] = s:copy['+']
+                                let s:paste['*'] = s:paste['+']
+                                return 'tmux'
+                              endif
+                            
+                              let s:err = 'clipboard: No clipboard tool. :help clipboard'
+                              return ''
+
+FUNCTION  <SNR>43_Map()
+    Defined: ~/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim:724
+Called 2 times
+Total time:   0.000120
+ Self time:   0.000120
+
+count  total (s)   self (s)
+    2              0.000013   let flags = a:flags . (a:rhs =~# '<Plug>' ? '' : '<script>')
+    2              0.000003   let head = a:lhs
+    2              0.000002   let tail = ''
+    2              0.000008   let keys = get(g:, a:mode.'remap', {})
+    2              0.000007   if len(keys) && type(keys) == type({})
+                                while !empty(head)
+                                  if has_key(keys, head)
+                                    let head = keys[head]
+                                    if empty(head)
+                                      return
+                                    endif
+                                    break
+                                  endif
+                                  let tail = matchstr(head, '<[^<>]*>$\|.$') . tail
+                                  let head = substitute(head, '<[^<>]*>$\|.$', '', '')
+                                endwhile
+    2              0.000001   endif
+    2              0.000019   if empty(mapcheck(head.tail, a:mode))
+    2              0.000028     exe a:mode.'map' s:nowait flags head.tail a:rhs
+    2              0.000002   endif
+
+FUNCTIONS SORTED ON TOTAL TIME
+count  total (s)   self (s)  function
+    1   0.359385   0.000223  provider#clipboard#Executable()
+    1   0.359163   0.000093  <SNR>52_cmd_ok()
+    9   0.040886   0.013475  <SNR>10_SynSet()
+   31   0.031502             <SNR>29_try()
+    2   0.015213   0.014679  <SNR>1_LoadFTPlugin()
+   29   0.007611   0.006766  <SNR>16_Highlight_Matching_Pair()
+    2   0.002605             <SNR>2_LoadIndent()
+   31   0.000933             <SNR>16_Remove_Matches()
+    2   0.000313   0.000236  CursorHold_Cb()
+    2   0.000260   0.000218  CursorHoldI_Cb()
+   10   0.000225             CursorHoldITimer()
+    4   0.000189             CursorHoldTimer()
+    2   0.000120             <SNR>43_Map()
+    1   0.000116   0.000040  <SNR>18_LoadRemotePlugins()
+    1   0.000064   0.000029  <SNR>18_GetManifest()
+    1   0.000035             <SNR>18_GetManifestPath()
+    1   0.000029             <SNR>44_OnWsl()
+    2   0.000022             <SNR>35_has_attr()
+
+FUNCTIONS SORTED ON SELF TIME
+count  total (s)   self (s)  function
+   31              0.031502  <SNR>29_try()
+    2   0.015213   0.014679  <SNR>1_LoadFTPlugin()
+    9   0.040886   0.013475  <SNR>10_SynSet()
+   29   0.007611   0.006766  <SNR>16_Highlight_Matching_Pair()
+    2              0.002605  <SNR>2_LoadIndent()
+   31              0.000933  <SNR>16_Remove_Matches()
+    2   0.000313   0.000236  CursorHold_Cb()
+   10              0.000225  CursorHoldITimer()
+    1   0.359385   0.000223  provider#clipboard#Executable()
+    2   0.000260   0.000218  CursorHoldI_Cb()
+    4              0.000189  CursorHoldTimer()
+    2              0.000120  <SNR>43_Map()
+    1   0.359163   0.000093  <SNR>52_cmd_ok()
+    1   0.000116   0.000040  <SNR>18_LoadRemotePlugins()
+    1              0.000035  <SNR>18_GetManifestPath()
+    1              0.000029  <SNR>44_OnWsl()
+    1   0.000064   0.000029  <SNR>18_GetManifest()
+    2              0.000022  <SNR>35_has_attr()
+
