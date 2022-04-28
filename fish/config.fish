@@ -1,5 +1,9 @@
 # v is a shortcut to neovim
 alias v="nvim"
+
+# t is a shortcut to tmux
+alias t="tmux"
+
 # echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/notken12/.profile
     # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
