@@ -15,7 +15,7 @@ set default_path /usr/bin /usr/sbin /bin /sbin /usr/games
 set homebrew /home/linuxbrew/.linuxbrew/bin 
 set brew_rbenv /usr/local/var/rbenv/shims
 set cargo ~/.cargo/bin
-set -gx PATH $homebrew $brew_rbenv $cargo $default_path
+set -gx PATH $homebrew $brew_rbenv $cargo $default_path $PATH
 
 # theme_gruvbox dark medium
 
@@ -30,3 +30,6 @@ export GPG_TTY=(tty)
 # export TERM=screen-256color
 
 # set -g theme_color_scheme gruvbox
+
+# starship prompt
+# starship init fish | source
