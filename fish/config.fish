@@ -32,4 +32,4 @@ export GPG_TTY=(tty)
 # set -g theme_color_scheme gruvbox
 
 # starship prompt
-# starship init fish | source
+starship init fish | source
