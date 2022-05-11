@@ -29,7 +29,7 @@ export GPG_TTY=(tty)
 # export TERM=xterm-256color
 # export TERM=screen-256color
 
-# set -g theme_color_scheme gruvbox
+set -U fish_greeting Welcome to the Mogo shell.
 
 # starship prompt
 starship init fish | source

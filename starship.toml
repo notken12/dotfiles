@@ -76,6 +76,7 @@ symbol = " "
 
 [package]
 symbol = " "
+disabled = true
 
 [python]
 symbol = " "
@@ -85,3 +86,6 @@ symbol = "🅢 "
 
 # [rust]
 # symbol = " "
+
+[cmd_duration]
+style = "#4274a8 bold"
