@@ -29,7 +29,17 @@ export GPG_TTY=(tty)
 # export TERM=xterm-256color
 # export TERM=screen-256color
 
-set -U fish_greeting Welcome to the Mogo shell.
+function fish_greeting
+  set_color $fish_color_quote
+  if ! command -v mogotip &> /dev/null
+    echo "🐶 Mogo shell"
+  else
+    echo -n ' '
+    mogotip
+  end
+end
+
+funcsave fish_greeting
 
 # starship prompt
 starship init fish | source
